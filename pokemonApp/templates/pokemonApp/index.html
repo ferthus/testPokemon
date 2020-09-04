@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>App Pokemon</title>
 </head>
+
 <body>
     <h3>Lista</h3>
     <table border="1">
@@ -15,11 +17,12 @@
         <tbody>
             {% for pokemon in pokemones %}
             <tr>
-                <td><a href="{% url 'pokemonView'  %}?url={{ pokemon.url}}" > {{ pokemon.name }} </a></td>
+                <td><a href="{% url 'pokemonView'  %}?id={{ pokemon.id}}"> {{ pokemon.name }} </a></td>
             </tr>
             {% endfor %}
         </tbody>
 
     </table>
 </body>
+
 </html>

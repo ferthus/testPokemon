@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>App Pokemon</title>
 </head>
+
 <body>
     <h3>Lista</h3>
     <table border="1">
@@ -14,14 +16,15 @@
             </tr>
         </thead>
         <tbody>
-            {% for pokemoninfo in informacion %}
+            {% for pokemoninfo in information %}
             <tr>
-                <td><a href="" > {{ pokemoninfo.type.name }} </a></td>
-                <td><a href="" > {{ pokemoninfo.ability.name }} </a></td>
+                <td><a href=""> {{ pokemoninfo.type.name }} </a></td>
+                <td><a href=""> {{ pokemoninfo.ability.name }} </a></td>
             </tr>
             {% endfor %}
         </tbody>
 
     </table>
 </body>
+
 </html>
