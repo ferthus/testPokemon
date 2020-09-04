@@ -14,14 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from pokemonApp.views import PokemonAppView
+from django.urls import path,include
+import pokemonApp.views as app1
+#app1.getPokemon()
+# from pokemonApp.views import PokemonAppView
 
 
-pokemon_app = PokemonAppView()
+# pokemon_app = PokemonAppView()
 urlpatterns = [
-    path('',pokemon_app.index, name ='index'),
-    path('index.html',pokemon_app.index , name = 'index'),
-    path('pokemonView/',pokemon_app.pokemonView, name ='pokemonView'),
+    path('',include('pokemonApp.urls')),
     path('admin/', admin.site.urls),
 ]
