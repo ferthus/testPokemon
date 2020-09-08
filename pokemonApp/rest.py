@@ -26,7 +26,22 @@ def getInfo(id):
     response = requests.get(url)
     if response.status_code == 200:
         informat = response.json()
+        abilities = informat.get('abilities',[]) 
         types = informat.get('types',[])
+        if types:
+            for typ in types:
+                name = typ['type']['name']
+                url = typ['type']['url']
+                urls = urlPoke(url)
+                typ['type']['id'] = urls
        
-    return types
+    return types,abilities
 
+def getType(id):
+    url = 'https://pokeapi.co/api/v2/type/'+id
+    response = requests.get(url)
+    if response.status_code == 200:
+        type_result = response.json()
+        pokemons = type_result.get('pokemon',[])
+
+    return pokemons
