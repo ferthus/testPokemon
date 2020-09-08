@@ -1,0 +1,18 @@
+{% extends 'pokemonApp/index.html' %}
+{% block container %}
+<table border="1">
+    <thead>
+        <tr>
+            <td><a href="#">pokemon </a></td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pokemontypes in pokemonts %}
+        <tr>
+            <td> {{ pokemontypes.pokemon.name }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+{% endblock %}
