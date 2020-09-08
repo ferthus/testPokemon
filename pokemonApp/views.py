@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from .rest import getPokemon,getInfo
-import re
-
+from .rest import *
 
 # class PokemonAppView():
 def index(request):
@@ -14,8 +12,19 @@ def index(request):
         
 def pokemonView(request):
     pokemon_id = request.GET['id']
-    information = getInfo(pokemon_id)
+    types,abilities = getInfo(pokemon_id)    
     context = {
-            'information':information
+            'types':types,
+            'abilities':abilities
+
         }      
     return render(request,'pokemonApp/pokemonView.html',context)
+
+def pokemonType(request):
+    type_id = request.GET['id']
+    pokemonts = getType(type_id)
+    context = {
+        'pokemonts':pokemonts
+    }
+
+    return render(request,'pokemonApp/pokemonType.html',context)

@@ -6,4 +6,5 @@ urlpatterns = [
     path('',views.index, name ='index'),
     #path('index',views.index , name = 'index'),
     path('pokemonView',views.pokemonView, name ='pokemonView'),
+    path('pokemonType',views.pokemonType,name='pokemonType')
 ]
