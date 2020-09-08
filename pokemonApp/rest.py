@@ -1,14 +1,15 @@
 import requests
 import re
 
+url_global = 'https://pokeapi.co/api/v2/pokemon/'
+
 def urlPoke(url):
     ide = re.findall('\d+', url)
     id = ide[1]
     return id
 
 def getPokemon():
-    url = 'https://pokeapi.co/api/v2/pokemon/'
-    response = requests.get(url)
+    response = requests.get(url_global)
     if response.status_code == 200:
         payload = response.json()
         results = payload.get('results',[])
@@ -22,7 +23,7 @@ def getPokemon():
     return results
 
 def getInfo(id):
-    url = 'https://pokeapi.co/api/v2/pokemon/'+id
+    url = f'{url_global}{id}'
     response = requests.get(url)
     if response.status_code == 200:
         informat = response.json()
@@ -38,7 +39,7 @@ def getInfo(id):
     return types,abilities
 
 def getType(id):
-    url = 'https://pokeapi.co/api/v2/type/'+id
+    url = f'https://pokeapi.co/api/v2/type/{id}'
     response = requests.get(url)
     if response.status_code == 200:
         type_result = response.json()
