@@ -10,9 +10,7 @@
         {% for pokemontypes in types %}
         <tr>
 
-            <td><a href="{% url 'pokemonType'  %}?id={{ pokemontypes.type.id}}">
-                    {{ pokemontypes.type.name }}
-                </a></td>
+            <td><a href="{% url 'pokemon_Type' pokemontypes.type.id %}">{{ pokemontypes.type.name }}</a></td>
         </tr>
         {% endfor %}
     </tbody>

@@ -23,7 +23,7 @@
                 <tbody>
                     {% for pokemon in pokemones %}
                     <tr>
-                        <td><a href="{% url 'pokemonView'  %}?id={{ pokemon.id}}"> {{ pokemon.name }} </a></td>
+                        <td><a href="{% url 'pokemon_View' pokemon.id %}"> {{ pokemon.name }} </a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
