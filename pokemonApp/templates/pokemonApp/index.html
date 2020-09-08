@@ -4,25 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <title>App Pokemon</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 </head>
 
-<body>
-    <h3>Lista</h3>
-    <table border="1">
-        <thead>
-            <tr>
-                <td>Nombre</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for pokemon in pokemones %}
-            <tr>
-                <td><a href="{% url 'pokemonView'  %}?id={{ pokemon.id}}"> {{ pokemon.name }} </a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
 
-    </table>
+<body class="h-100 ">
+    <div class="container h-00">
+        <div class="row justify-content-center h-100">
+            {% block container %}
+            <table border="1">
+                <thead>
+                    <tr>
+                        <td>Nombre</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pokemon in pokemones %}
+                    <tr>
+                        <td><a href="{% url 'pokemonView'  %}?id={{ pokemon.id}}"> {{ pokemon.name }} </a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+            {% endblock %}
+
+        </div>
+    </div>
 </body>
-
-</html>
