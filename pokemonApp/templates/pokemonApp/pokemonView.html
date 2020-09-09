@@ -1,35 +1,50 @@
-{% extends 'pokemonApp/index.html' %}
-{% block container %}
-<table border="1">
-    <thead>
-        <tr>
-            <td>type</td>
-        </tr>
-    </thead>
-    <tbody>
-        {% for pokemontypes in types %}
-        <tr>
+{% extends 'pokemonApp/index.html' %} {% block container %}
 
-            <td><a href="{% url 'pokemon_Type' pokemontypes.type.id %}">{{ pokemontypes.type.name }}</a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-
-</table>
-<table border="1">
-    <thead>
-        <tr>
-            <td>ability</td>
-        </tr>
-    </thead>
-    <tbody>
-        {% for pokemonabi in abilities %}
-        <tr>
-
-            <td>{{ pokemonabi.ability.name }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-
-</table>
-{% endblock %}
+<div class="card mb-3" style="max-width: 550px">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{image.front_default}}" class="card-img" alt="..." />
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card-body">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col">type</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for pokemontypes in types %}
+              <tr>
+                <td>
+                  <a href="{% url 'pokemon_Type' pokemontypes.type.id %}">{{ pokemontypes.type.name }}</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col">ability</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for pokemonabi in abilities %}
+              <tr>
+                <td>{{ pokemonabi.ability.name }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  {% endblock %}
