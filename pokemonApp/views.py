@@ -51,10 +51,11 @@ def pokemon_Type(request,id):
         
 def pokemon_View(request,id):
     if request.method == 'GET':
-        types,abilities = getInfo(id)    
+        types,abilities,image = getInfo(id)    
         context = {
                 'types':types,
-                'abilities':abilities
+                'abilities':abilities,
+                'image':image,
 
         }      
         return render(request,'pokemonApp/pokemonView.html',context)

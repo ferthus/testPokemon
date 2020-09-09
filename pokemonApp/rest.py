@@ -29,6 +29,7 @@ def getInfo(id):
         informat = response.json()
         abilities = informat.get('abilities',[]) 
         types = informat.get('types',[])
+        image = informat.get('sprites',[])
         if types:
             for typ in types:
                 name = typ['type']['name']
@@ -36,7 +37,7 @@ def getInfo(id):
                 urls = urlPoke(url)
                 typ['type']['id'] = urls
        
-    return types,abilities
+    return types,abilities,image
 
 def getType(id):
     url = f'https://pokeapi.co/api/v2/type/{id}'
