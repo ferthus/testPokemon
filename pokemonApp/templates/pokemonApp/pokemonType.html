@@ -1,18 +1,25 @@
 {% extends 'pokemonApp/index.html' %}
-{% block container %}
-<table class="table">
-    <thead>
-        <tr>
-            <td><a href="#">pokemon </a></td>
-        </tr>
-    </thead>
-    <tbody>
-        {% for pokemontypes in pokemonts %}
-        <tr>
-            <td> {{ pokemontypes.pokemon.name }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
 
-</table>
+{% block container %}
+<div class="card">
+    <h5 class="card-header"> Pokemons</h5>
+    <div class="card-body">
+        <div class="table-responsive-md">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td><a href="#">pokemon </a></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pokemontypes in pokemonts %}
+                    <tr>
+                        <td> {{ pokemontypes.pokemon.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}
