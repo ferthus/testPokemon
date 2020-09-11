@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-import pokemonApp.views as app1
+from django.contrib.auth import views as auth_views
+#import pokemonApp.views as app1
 #app1.getPokemon()
 # from pokemonApp.views import PokemonAppView
 
@@ -24,4 +25,5 @@ import pokemonApp.views as app1
 urlpatterns = [
     path('',include('pokemonApp.urls')),
     path('admin/', admin.site.urls),
+  
 ]
